@@ -246,7 +246,7 @@ def _get_parser():
         "--mcu",
         help="Build for the given MCU",
         required=True,
-        choices=["ARM_MUSCA_B1"],
+        choices=["ARM_MUSCA_B1", "ARM_MUSCA_S1"],
         default=None,
     )
 
