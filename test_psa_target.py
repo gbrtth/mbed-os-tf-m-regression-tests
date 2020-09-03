@@ -152,6 +152,22 @@ def _erase_flash_storage(args, suite):
             "-Intel",
         ]
 
+    if args.mcu == "ARM_MUSCA_S1":
+        cmd = [
+            "srec_cat",
+            "mbed-os-tf-m-regression-tests.bin",
+            "-Binary",
+            "-offset",
+            "0xA000000",
+            "-fill",
+            "0xFF",
+            "0xA1E9000",
+            "0xA1ED000",
+            "-o",
+            "mbed-os-tf-m-regression-tests-reset-flash.hex",
+            "-Intel",
+        ]
+
     retcode = run_cmd_output_realtime(cmd, mbed_os_dir)
     if retcode:
         logging.critical(
